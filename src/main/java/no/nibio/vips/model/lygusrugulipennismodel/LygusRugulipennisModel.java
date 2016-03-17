@@ -71,7 +71,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
     public List<Result> getResult() throws ModelExcecutionException {
         
        this.aggregateDaysAboveThreshold();
-       System.out.println(this.dataMatrix.toString());
+       //System.out.println(this.dataMatrix.toString());
        List<Result> retVal = new ArrayList<>();
        Date currentDate = this.dataMatrix.getFirstDateWithParameterValue(DataMatrix.DAYS_ABOVE_THRESHOLD);
        Calendar cal = Calendar.getInstance(this.timeZone);
