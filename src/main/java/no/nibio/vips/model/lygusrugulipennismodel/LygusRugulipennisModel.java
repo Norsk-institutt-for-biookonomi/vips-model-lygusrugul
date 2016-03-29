@@ -148,7 +148,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
 
     @Override
     public String getCopyright() {
-        return "(c) 2015 NIBIO (http://www.nibio.no/). Contact: post@nibio.no";
+        return "(c) 2016 NIBIO (http://www.nibio.no/). Contact: post@nibio.no";
     }
 
     @Override
