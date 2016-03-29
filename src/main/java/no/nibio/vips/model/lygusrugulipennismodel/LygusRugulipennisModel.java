@@ -281,7 +281,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
 
     private void aggregateDaysAboveThreshold() {
         Date currentDate = dataMatrix.getFirstDateWithParameterValue(DataMatrix.TXD);
-        System.out.println("currentDate=" + currentDate +", value=" + ((WeatherObservation) dataMatrix.getParamValueForDate(currentDate, DataMatrix.TXD)).getValue());
+        //System.out.println("currentDate=" + currentDate +", value=" + ((WeatherObservation) dataMatrix.getParamValueForDate(currentDate, DataMatrix.TXD)).getValue());
         Calendar cal = Calendar.getInstance(this.timeZone);
         Integer daysAboveThreshold = 0;
         while(dataMatrix.getParamValueForDate(currentDate, DataMatrix.TXD) != null)
