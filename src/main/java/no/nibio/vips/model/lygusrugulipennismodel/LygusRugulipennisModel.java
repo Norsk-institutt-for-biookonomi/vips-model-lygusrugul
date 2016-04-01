@@ -87,6 +87,8 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
            
            result.setValue(CommonNamespaces.NS_WEATHER, DataMatrix.TXD, dFormat.format(TXDCurrentDate));
            result.setValue(this.getModelId().toString(), DataMatrix.DAYS_ABOVE_THRESHOLD, String.valueOf(daysAboveUpperThreshold));
+           result.setValue(this.getModelId().toString(), "LOWER_TEMPERATURE_THRESHOLD", String.valueOf(LygusRugulipennisModel.LOWER_TEMPERATURE_THRESHOLD));
+           result.setValue(this.getModelId().toString(), "UPPER_TEMPERATURE_THRESHOLD", String.valueOf(LygusRugulipennisModel.UPPER_TEMPERATURE_THRESHOLD));
            
            // Deciding warning status
            Integer warningStatus = Result.WARNING_STATUS_NO_RISK;
