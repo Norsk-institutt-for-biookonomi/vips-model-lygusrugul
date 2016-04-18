@@ -21,6 +21,7 @@ package no.nibio.vips.model.lygusrugulipennismodel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ import no.nibio.vips.model.ModelExcecutionException;
 import no.nibio.vips.model.ModelId;
 import no.nibio.vips.util.CommonNamespaces;
 import no.nibio.vips.util.InvalidAggregationTypeException;
+import no.nibio.vips.util.ModelUtil;
 import no.nibio.vips.util.WeatherElements;
 import no.nibio.vips.util.WeatherObservationListException;
 import no.nibio.vips.util.WeatherUtil;
@@ -62,10 +64,13 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
     public final static Double LOWER_TEMPERATURE_THRESHOLD = 10.0; // Degrees Celcius
     public final static Double UPPER_TEMPERATURE_THRESHOLD = 15.0; // Degrees Celcius
     public final static Integer MINIMUM_DAYS_ABOVE_UPPER_THRESHOLD = 3;
+    
+    private final ModelUtil modelUtil;
 
     public LygusRugulipennisModel()
     {
         super("no.nibio.vips.model.lygusrugulipennismodel.texts");
+        this.modelUtil = new ModelUtil();
     }
     @Override
     public List<Result> getResult() throws ModelExcecutionException {
@@ -160,7 +165,14 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
 
     @Override
     public String getModelDescription(String language) {
-        return this.getText("description", language);
+        try
+        {
+            return this.modelUtil.getTextWithBase64EncodedImages(this.getText("description", language), this.getClass());
+        }
+        catch(IOException ex)
+        {
+            return this.getText("description", language);
+        }
     }
 
     @Override
