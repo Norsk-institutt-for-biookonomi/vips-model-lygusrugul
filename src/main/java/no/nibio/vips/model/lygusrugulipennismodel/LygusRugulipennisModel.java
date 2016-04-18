@@ -136,7 +136,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
 
     @Override
     public String getLicense() {
-        return "Copyright (c) 2015 NIBIO <http://www.nibio.no/>. \n" +
+        return "Copyright (c) 2016 NIBIO <http://www.nibio.no/>. \n" +
             "\n" +
             "This file is part of LygusRugulipennisModel. \n" + 
             "LygusRugulipennisModel is free software: you can redistribute it and/or modify \n" + 
