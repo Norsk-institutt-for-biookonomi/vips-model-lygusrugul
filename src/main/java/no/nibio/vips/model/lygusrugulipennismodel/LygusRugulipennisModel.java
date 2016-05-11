@@ -211,6 +211,8 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
                 "\t\t\t\t\"logIntervalId\":2,\n" +
                 "\t\t\t\t\"value\":1.1\n" +
                 "\t\t}\n" +
+                "\t\t]\n" +
+                "\t}\n" +
                 "}\n";
     }
 
