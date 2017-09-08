@@ -84,7 +84,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
        while(this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.DAYS_ABOVE_THRESHOLD) != null)
        {
            Result result = new ResultImpl();
-           result.setResultValidTime(currentDate);
+           result.setValidTimeStart(currentDate);
            
            // Adding model parameters
            Integer daysAboveUpperThreshold = this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.DAYS_ABOVE_THRESHOLD);
