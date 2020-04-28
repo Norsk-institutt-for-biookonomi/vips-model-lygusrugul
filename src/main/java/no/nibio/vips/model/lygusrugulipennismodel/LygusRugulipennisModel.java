@@ -220,7 +220,6 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
     public void setConfiguration(ModelConfiguration config) throws ConfigValidationException {
         
         this.dataMatrix = new DataMatrix();
-        ObjectMapper mapper = new ObjectMapper();
         // Setting timezone
         this.timeZone = TimeZone.getTimeZone((String) config.getConfigParameter("timeZone"));
         // Importing weather data, creating collections
@@ -230,7 +229,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
         // OR lastly hourly values of TM (not optimal, but better than nothing)
         List<WeatherObservation> TM = new ArrayList<>();
         WeatherUtil wUtil = new WeatherUtil();
-        List<WeatherObservation> observations = mapper.convertValue(config.getConfigParameter("observations"), new TypeReference<List<WeatherObservation>>(){});
+        List<WeatherObservation> observations = this.modelUtil.extractWeatherObservationList(config.getConfigParameter("observations"));
         for(WeatherObservation o:observations)
         {
             switch(o.getElementMeasurementTypeId())
