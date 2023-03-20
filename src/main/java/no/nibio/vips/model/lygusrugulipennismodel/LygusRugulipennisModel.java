@@ -217,7 +217,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
         // OR lastly hourly values of TM (not optimal, but better than nothing)
         List<WeatherObservation> TM = new ArrayList<>();
         WeatherUtil wUtil = new WeatherUtil();
-        List<WeatherObservation> observations = mapper.convertValue(config.getConfigParameter("observations"), new TypeReference<List<WeatherObservation>>(){});
+        List<WeatherObservation> observations = modelUtil.extractWeatherObservationList(config.getConfigParameter("observations"));
         for(WeatherObservation o:observations)
         {
             switch(o.getElementMeasurementTypeId())
@@ -250,7 +250,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
             {
                 try
                 {
-                    TXDCalculated = new WeatherUtil().getAggregatedDailyValues(TX, timeZone, 15, 15, WeatherUtil.AGGREGATION_TYPE_MAXIMUM);
+                    TXDCalculated = new WeatherUtil().getAggregatedDailyValues(TX, timeZone, 15, WeatherUtil.AGGREGATION_TYPE_MAXIMUM);
                 }catch(WeatherObservationListException | InvalidAggregationTypeException ex)
                 {
                     throw new ConfigValidationException(ex.getMessage());
@@ -260,7 +260,7 @@ public class LygusRugulipennisModel extends I18nImpl implements Model{
             {
                 try
                 {
-                    TXDCalculated = new WeatherUtil().getAggregatedDailyValues(TM, timeZone, 15, 15, WeatherUtil.AGGREGATION_TYPE_MAXIMUM);
+                    TXDCalculated = new WeatherUtil().getAggregatedDailyValues(TM, timeZone, 15, WeatherUtil.AGGREGATION_TYPE_MAXIMUM);
                 }catch(WeatherObservationListException | InvalidAggregationTypeException ex)
                 {
                     throw new ConfigValidationException(ex.getMessage());

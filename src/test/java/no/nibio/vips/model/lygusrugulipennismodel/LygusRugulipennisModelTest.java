@@ -45,7 +45,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author treinar
+ * @author Tor-Einar Skog <tor-einar.skog@nibio.no>
  */
 public class LygusRugulipennisModelTest {
     
@@ -78,6 +78,10 @@ public class LygusRugulipennisModelTest {
         ModelConfiguration config = this.getConfiguration("/aas_2015_txd.json");
         instance.setConfiguration(config);
         List<Result> result = instance.getResult();
+        assertNotNull(result);
+        config = this.getConfiguration("/AgDir_2023.json");
+        instance.setConfiguration(config);
+        result = instance.getResult();
         assertNotNull(result);
         /*
         Collections.sort(result);
