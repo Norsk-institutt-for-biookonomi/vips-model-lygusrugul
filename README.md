@@ -1,5 +1,9 @@
 # LygusRugulipennisModel
 
+This repository contains the implementation of the Lygus rugulipennis model
+
+&copy; [NIBIO](https://nibio.no/en)
+
 <p><img src="src/main/resources/images/lygusr.jpg" title="Foto: E. Fl&amp;oslash;istad"/></p>
 <h3>Model description</h3>
 <p>The pest prediction&nbsp;model LYGUSRUGUL (&ldquo;European tarnished plant bug &ndash; flight activity in vegetables&rdquo;) is based on several years' studies of the relation between maximum temperatures and bug activity in carrot fields (Tor J. Johansen, unpublished). It was implemented in VIPS in 2008. The forecast indicates the risk of flight activity and damage in the fields. The need for control measures is further based on the plant development stage, and expected bug population size at each locality. Local temperature observations should be used when the weather station is distant.</p>
@@ -12,11 +16,18 @@
 <h3>Validation of the model</h3>
 <p>After implementation of the model in VIPS (2008) it has been validated over several years (2008-2013) by comparing actual bug activity (pheromone and/or collision traps) with forecasting based on in-field temperature registrations. The bug activity corresponded well with the risk forecast. Longer distance to the weather station will lead to less accurate warning.</p>
 
-### Development
-
+## Development
 Clone Gitlab repository
 
 ```
 $ git clone https://gitlab.nibio.no/VIPS/models/java/Model_LYGUSRUGUL.git
 $ cd Model_LYGUSRUGUL
 ```
+
+### Compile, run tests
+```bash
+mvn clean install
+```
+
+### Deploy to VIPSCore
+See [the VIPSCore README](https://gitlab.nibio.no/VIPS/VIPSCore)
